@@ -50,9 +50,9 @@ export class WeddingDayComponent implements OnInit {
     };
   }
 
-  @HostListener('window:resize')
-  onResize() {
-    this.showRotationPrompt = false;
-  }
+  // @HostListener('window:resize')
+  // onResize() {
+  //   this.showRotationPrompt = false;
+  // }
 
 }
