@@ -1,27 +1,59 @@
-# Wedding
+# Wedding Day - Angular GitHub Pages Deployment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.
+## Development Workflow
 
-## Development server
+### 1️⃣ **Feature Branch Development**
+- Always create a feature branch for new development:
+  ```sh
+  git checkout -b feature-branch
+  ```
+- Make your changes and commit:
+  ```sh
+  git add .
+  git commit -m "Your commit message"
+  ```
+- Push the feature branch:
+  ```sh
+  git push origin feature-branch
+  ```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 2️⃣ **Local Testing on GitHub Pages**
+To test the website locally on GitHub Pages before merging, run:
+```sh
+npm run local-prod-build
+```
+This command internally executes:
+```sh
+ng build --prod --base-href /wedding-day/ && npx angular-cli-ghpages --dir=dist/wedding-day --branch=gh-pages
+```
+Now check your changes at:  
+🔗 [https://balmukundsingh.github.io/wedding-day/](https://balmukundsingh.github.io/wedding-day/)
 
-## Code scaffolding
+### 3️⃣ **Merging to Main and Deploying**
+Once development is complete:
+- Merge your feature branch into `main`:
+  ```sh
+  git checkout main
+  git merge feature-branch
+  git push origin main
+  ```
+- Deploy the main branch to GitHub Pages:
+  ```sh
+  npm run prod-build
+  ```
+  This command internally executes:
+  ```sh
+  ng build --prod --base-href /wedding-day/ && npx angular-cli-ghpages --dir=dist/wedding-day
+  ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 4️⃣ **Important Notes**
+✔ Always **commit and push** changes before running deployment commands.  
+✔ Ensure `gh-pages` branch exists and is set as the GitHub Pages source in repo settings.  
+✔ Use `local-prod-build` for feature branch testing and `prod-build` for final deployment.  
 
-## Build
+🚀 **Happy Coding!**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ng build --output-path docs/v1 --base-href /wedding-day/v1/
+ng build --output-path docs/v2 --base-href /wedding-day/v2/
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
