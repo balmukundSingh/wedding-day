@@ -1,9 +1,34 @@
+/* Keep existing styles */
 .custom-carousel-control {
-    width: 5%;
-    opacity: 0.8;
+    width: 8%; /* Increased width for better clickability */
+    opacity: 0.9;
 }
-.custom-carousel-control:hover {
+
+/* Make only the "Next" (Right) button white */
+.carousel-control-next {
+    
+    border-radius: 5px; /* Optional: Slightly rounded edges */
+}
+
+/* Make only the "Previous" (Left) button white */
+.carousel-control-prev {
+    
+    border-radius: 5px; /* Optional: Slightly rounded edges */
+}
+
+/* Ensure both buttons remain white on hover */
+.carousel-control-next:hover,
+.carousel-control-prev:hover {
     opacity: 1;
+    
+}
+
+/* Ensure the icons are bigger and remain visible */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(0%); /* Convert Bootstrap icons to black */
+    width: 3rem; /* Increased icon size */
+    height: 3rem; /* Increased icon size */
 }
 
 /* Portrait (Vertical) Image Styling */

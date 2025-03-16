@@ -1,43 +1,36 @@
-<div class="card">
-    <!-- <div class="card-body"> -->
-        <div class="card">
-            <h5 class="card-header text-white bg-primary mb-3">Balmukund Ki Deepa</h5>
-            <!-- <div class="card-body"> -->
-                <div class="container-fluid">
-                    <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
-                          Wedding Day
-                        </button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">
-                           Engagement
-                        </button>
-                      </li>
-                      <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
-                          Haldi
-                        </button>
-                      </li>
-                    </ul>
-                  
-                    <div class="tab-content mt-3" id="myTabContent">
-                      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <app-wedding-day></app-wedding-day>
-                      </div>
-                      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <app-engagement></app-engagement>
-                      </div>
-                      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                        <app-haldi></app-haldi>
-                      </div>
-                    </div>
-                </div>                
-            <!-- </div> -->
+<!-- <div class="card">
+  <div class="card"> -->
+      <!-- <h5 class="card-header text-white bg-primary mb-3">Balmukund Ki Deepa</h5> -->
+      <div class="container-fluid">
+          <ul class="nav nav-tabs" id="myTabs" role="tablist">
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link" [class.active]="activeTab === 'wedding-day'" (click)="activeTab = 'wedding-day'" type="button">
+                      Wedding Day
+                  </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link" [class.active]="activeTab === 'engagement'" (click)="activeTab = 'engagement'" type="button">
+                      Engagement
+                  </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                  <button class="nav-link" [class.active]="activeTab === 'haldi'" (click)="activeTab = 'haldi'" type="button">
+                      Haldi
+                  </button>
+              </li>
+          </ul>
+
+          <div class="tab-content mt-3">
+              <div *ngIf="activeTab === 'wedding-day'">
+                  <app-wedding-day></app-wedding-day>
+              </div>
+              <div *ngIf="activeTab === 'engagement'">
+                  <app-engagement></app-engagement>
+              </div>
+              <div *ngIf="activeTab === 'haldi'">
+                  <app-haldi></app-haldi>
+              </div>
           </div>
-    <!-- </div> -->
-  </div>
-
-
-
+      </div>
+  <!-- </div>
+</div> -->
