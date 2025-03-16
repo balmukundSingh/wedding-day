@@ -1,63 +1,53 @@
 <div class="container mt-4">
   
-    <!-- Vertical (Portrait) Images Carousel -->
-    <div *ngIf="portraitImages.length" id="portraitCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
-      
-      <div class="carousel-inner rounded shadow-lg">
-        <div 
-          *ngFor="let img of portraitImages; let i = index" 
-          class="carousel-item" 
-          [class.active]="i === 0">
-          
-          <img [src]="img" class="d-block w-100 portrait-img" alt="Wedding Image {{ i + 1 }}">
-          
-          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
-            <h5>{{ getFileName(img) }}</h5>
-          </div>
-  
+  <!-- Portrait Images Carousel -->
+  <div *ngIf="loadedPortraitImages.length" id="portraitCarousel" class="carousel slide mb-4" data-bs-ride="false">
+    
+    <div class="carousel-inner rounded shadow-lg">
+      <div *ngFor="let img of loadedPortraitImages; let i = index" class="carousel-item" [class.active]="i === 0">
+        
+        <img [src]="img" class="d-block w-100 portrait-img" alt="Wedding Image {{ i + 1 }}">
+        
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+          <h5>{{ getFileName(img) }}</h5>
         </div>
+
       </div>
-  
-      <button class="carousel-control-prev custom-carousel-control" type="button" data-bs-target="#portraitCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next custom-carousel-control" type="button" data-bs-target="#portraitCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-  
     </div>
-  
-    <!-- Rotation Prompt -->
-    <!-- <div *ngIf="showRotationPrompt" class="rotation-alert alert alert-warning text-center">
-      <strong>Rotate your phone for a better view!</strong>
-    </div> -->
-  
-    <!-- Horizontal (Landscape) Images Carousel -->
-    <div *ngIf="landscapeImages.length" id="landscapeCarousel" class="carousel slide" data-bs-ride="carousel">
-      
-      <div class="carousel-inner rounded shadow-lg">
-        <div 
-          *ngFor="let img of landscapeImages; let i = index" 
-          class="carousel-item" 
-          [class.active]="i === 0">
-          
-          <img [src]="img" class="d-block w-100 landscape-img" alt="Wedding Image {{ i + 1 }}" (load)="checkRotation(img)">
-  
-          <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
-            <h5>{{ getFileName(img) }}</h5>
-          </div>
-  
-        </div>
-      </div>
-  
-      <button class="carousel-control-prev custom-carousel-control" type="button" data-bs-target="#landscapeCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-      </button>
-      <button class="carousel-control-next custom-carousel-control" type="button" data-bs-target="#landscapeCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-      </button>
-  
-    </div>
-  
+
+    <!-- Manual Controls -->
+    <button class="carousel-control-prev custom-carousel-control" type="button" data-bs-target="#portraitCarousel" data-bs-slide="prev" (click)="loadPreviousPortraitBatch()">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next custom-carousel-control" type="button" data-bs-target="#portraitCarousel" data-bs-slide="next" (click)="loadNextPortraitBatch()">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
   </div>
-  
+
+  <!-- Landscape Images Carousel -->
+  <div *ngIf="loadedLandscapeImages.length" id="landscapeCarousel" class="carousel slide" data-bs-ride="false">
+    
+    <div class="carousel-inner rounded shadow-lg">
+      <div *ngFor="let img of loadedLandscapeImages; let i = index" class="carousel-item" [class.active]="i === 0">
+        
+        <img [src]="img" class="d-block w-100 landscape-img" alt="Wedding Image {{ i + 1 }}">
+        
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded p-2">
+          <h5>{{ getFileName(img) }}</h5>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Manual Controls -->
+    <button class="carousel-control-prev custom-carousel-control" type="button" data-bs-target="#landscapeCarousel" data-bs-slide="prev" (click)="loadPreviousLandscapeBatch()">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next custom-carousel-control" type="button" data-bs-target="#landscapeCarousel" data-bs-slide="next" (click)="loadNextLandscapeBatch()">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+
+  </div>
+
+</div>

@@ -9,6 +9,8 @@ export class HomePageComponent implements OnInit {
 
   constructor() { }
 
+  activeTab: string = 'wedding-day';
+
   ngOnInit(): void {
   }
 
